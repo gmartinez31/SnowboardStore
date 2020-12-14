@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SnowboardStore</string>
+    <string name="email_label">Email:</string>
+    <string name="password_label">Password:</string>
+    <string name="submit">Submit</string>
+    <string name="password">password</string>
+    <string name="email_example">email@example.com</string>
+    <string name="create_account">Create A New Account</string>
+    <string name="login">Login</string>
 </resources>

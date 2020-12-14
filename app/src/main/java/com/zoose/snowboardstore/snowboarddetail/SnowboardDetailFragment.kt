@@ -1,4 +1,4 @@
-package com.zoose.snowboardstore.shoedetail
+package com.zoose.snowboardstore.snowboarddetail
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,13 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.zoose.snowboardstore.R
 
-class ShoeDetailFragment : Fragment() {
+class SnowboardDetailFragment : Fragment() {
 
     companion object {
-        fun newInstance() = ShoeDetailFragment()
+        fun newInstance() = SnowboardDetailFragment()
     }
 
-    private lateinit var viewModel: ShoeDetailViewModel
+    private lateinit var viewModel: SnowboardDetailViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +25,7 @@ class ShoeDetailFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ShoeDetailViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(SnowboardDetailViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
