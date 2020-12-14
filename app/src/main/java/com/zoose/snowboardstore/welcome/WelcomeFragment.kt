@@ -1,4 +1,4 @@
-package com.zoose.snowboardstore.login
+package com.zoose.snowboardstore.welcome
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,24 +8,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.zoose.snowboardstore.R
-import com.zoose.snowboardstore.databinding.LoginFragmentBinding
+import com.zoose.snowboardstore.databinding.WelcomeFragmentBinding
 
-class LoginFragment : Fragment() {
+class WelcomeFragment : Fragment() {
 
-//    private lateinit var viewModel: LoginViewModel
+//    private lateinit var viewModel: WelcomeViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-
-        val binding: LoginFragmentBinding = DataBindingUtil.inflate(
-            inflater, R.layout.login_fragment, container, false)
+        val binding: WelcomeFragmentBinding = DataBindingUtil.inflate(
+            inflater, R.layout.welcome_fragment, container, false)
 
         return binding.root
     }
 
 //    override fun onActivityCreated(savedInstanceState: Bundle?) {
 //        super.onActivityCreated(savedInstanceState)
-//        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+//        viewModel = ViewModelProvider(this).get(WelcomeViewModel::class.java)
 //        // TODO: Use the ViewModel
 //    }
 
