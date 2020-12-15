@@ -7,4 +7,5 @@
     <string name="email_example">email@example.com</string>
     <string name="create_account">Create A New Account</string>
     <string name="login">Login</string>
+    <string name="confirm_password">Confirm Password:</string>
 </resources>
