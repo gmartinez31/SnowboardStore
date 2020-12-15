@@ -46,7 +46,7 @@ class LoginFragment : Fragment() {
         viewModel.loggedIn.observe(viewLifecycleOwner, Observer {
             loggedIn -> if (loggedIn) {
                 // validate login pw OR validate pw match if creating account
-                validateLogin()
+                validateLogin(binding)
                 // navigate to onboarding page
             }
         })
