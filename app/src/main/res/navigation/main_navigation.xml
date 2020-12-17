@@ -18,7 +18,7 @@
         android:name="com.zoose.snowboardstore.welcome.WelcomeFragment"
         android:label="welcome_destination">
         <action
-            android:id="@+id/action_welcomeFragment_to_instructionFragment"
+            android:id="@+id/action_welcome_destination_to_instruction_destination"
             app:destination="@id/instruction_destination" />
     </fragment>
     <fragment
