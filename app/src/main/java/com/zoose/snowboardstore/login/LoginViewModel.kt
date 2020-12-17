@@ -41,4 +41,12 @@ class LoginViewModel : ViewModel() {
     fun submitLogin() {
         _loggedIn.value = true
     }
+
+    fun onCreateAccountEventFinished() {
+        _createAccountEvent.value = false
+    }
+
+    fun onLoginToAccountEventFinished() {
+        _loginToAccountEvent.value = false
+    }
 }

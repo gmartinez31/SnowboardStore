@@ -8,4 +8,7 @@
     <string name="create_account">Create A New Account</string>
     <string name="login">Login</string>
     <string name="confirm_password">Confirm Password:</string>
+    <string name="welcome_text">Welcome to Snowboard Store!</string>
+    <string name="instruction_text">Please click the button below to view the Instructions!</string>
+    <string name="instruction_btn">Go To Instructions Screen</string>
 </resources>

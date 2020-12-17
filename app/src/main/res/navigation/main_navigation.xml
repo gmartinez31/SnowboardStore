@@ -3,26 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/login_destination">
 
     <fragment
-        android:id="@+id/loginFragment"
+        android:id="@+id/login_destination"
         android:name="com.zoose.snowboardstore.login.LoginFragment"
-        android:label="LoginFragment" >
+        android:label="login_fragment">
         <action
             android:id="@+id/action_loginFragment_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
+            app:destination="@id/welcome_destination" />
     </fragment>
     <fragment
-        android:id="@+id/welcomeFragment"
+        android:id="@+id/welcome_destination"
         android:name="com.zoose.snowboardstore.welcome.WelcomeFragment"
-        android:label="WelcomeFragment" >
+        android:label="welcome_destination">
         <action
             android:id="@+id/action_welcomeFragment_to_instructionFragment"
-            app:destination="@id/instructionFragment" />
+            app:destination="@id/instruction_destination" />
     </fragment>
     <fragment
-        android:id="@+id/instructionFragment"
+        android:id="@+id/instruction_destination"
         android:name="com.zoose.snowboardstore.instruction.InstructionFragment"
-        android:label="InstructionFragment" />
+        android:label="instruction_destination" />
 </navigation>

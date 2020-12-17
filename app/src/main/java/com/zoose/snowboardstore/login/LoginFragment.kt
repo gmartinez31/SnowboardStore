@@ -9,8 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.zoose.snowboardstore.R
 import com.zoose.snowboardstore.databinding.LoginFragmentBinding
 
@@ -34,18 +36,19 @@ class LoginFragment : Fragment() {
         viewModel.createAccountEvent.observe(viewLifecycleOwner, Observer {
             createAccount -> if (createAccount) {
                 showConfirmPasswordFields(binding)
+                viewModel.onCreateAccountEventFinished()
             }
         })
 
         viewModel.loginToAccountEvent.observe(viewLifecycleOwner, Observer {
             loginToAccount -> if (loginToAccount) {
                 hideConfirmPasswordFields(binding)
+                viewModel.onLoginToAccountEventFinished()
             }
         })
 
         viewModel.loggedIn.observe(viewLifecycleOwner, Observer {
             loggedIn -> if (loggedIn) {
-                // validate login pw OR validate pw match if creating account
                 validateLogin(binding)
                 // navigate to onboarding page
             }
@@ -69,22 +72,15 @@ class LoginFragment : Fragment() {
     }
 
     private fun validateLogin(binding: LoginFragmentBinding) {
-        if (viewModel.createAccountEvent.value == true) {
-            if (validateEmailAndPasswords(binding) && passwordsMatch(binding.passwordText.text, binding.confirmPasswordText.text)) {
-                // navigate to welcome screen
-                // also remember that this user is now "logged in" so maybe we need a userLoggedIn boolean field in the viewmodel
-            } else {
-                //show error message
+        if (binding.confirmPasswordText.visibility == View.VISIBLE) {
+            if (validateEmailAndPasswords(binding)) {
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
             }
         } else {
             if (validateEmailAndPassword(binding)) {
-                // "log in" and navigate to welcome screen
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
             }
-            // show error message
         }
-        binding.emailText.text
-        binding.passwordText.text
-        binding.confirmPasswordText.text
     }
 
     private fun validateEmailAndPassword(binding: LoginFragmentBinding): Boolean {
@@ -93,9 +89,5 @@ class LoginFragment : Fragment() {
 
     private fun validateEmailAndPasswords(binding: LoginFragmentBinding): Boolean {
         return binding.emailText.text.isNotEmpty() && binding.passwordText.text.isNotEmpty() && binding.confirmPasswordText.text.isNotEmpty()
-    }
-
-    private fun passwordsMatch(password: Editable, confirmPassword: Editable): Boolean {
-        return password == confirmPassword
     }
 }
