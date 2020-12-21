@@ -11,4 +11,7 @@
     <string name="welcome_text">Welcome to Snowboard Store!</string>
     <string name="instruction_text">Please click the button below to view the Instructions!</string>
     <string name="instruction_btn">Go To Instructions Screen</string>
+    <string name="overview_text">Welcome to the Snowboard Store. On the next screen, you will be able to see different Snowboards available to look at in detail. Feel free to click on any of them to see the Snowboard in detail!</string>
+    <string name="snowboard_list_button">Go To Snowboard List!</string>
+    <string name="instruction_button_text">Click the Button Below!</string>
 </resources>

@@ -20,7 +20,7 @@ class SnowboardDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.shoe_detail_fragment, container, false)
+        return inflater.inflate(R.layout.snowboard_detail_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

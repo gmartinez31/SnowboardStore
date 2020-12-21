@@ -6,25 +6,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.zoose.snowboardstore.R
+import com.zoose.snowboardstore.databinding.SnowboardListFragmentBinding
+import com.zoose.snowboardstore.login.LoginViewModelFactory
 
 class SnowboardListFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = SnowboardListFragment()
-    }
-
     private lateinit var viewModel: SnowboardListViewModel
+    private lateinit var viewModelFactory: SnowboardListViewModelFactory
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.shoe_list_fragment, container, false)
-    }
+        val binding: SnowboardListFragmentBinding = DataBindingUtil.inflate(
+                inflater, R.layout.snowboard_list_fragment, container, false)
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SnowboardListViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModelFactory = SnowboardListViewModelFactory()
+        viewModel = ViewModelProvider(this, viewModelFactory).get(SnowboardListViewModel::class.java)
+        binding.snowboardListViewModel = viewModel
+
+        binding.lifecycleOwner = this
+
+        return inflater.inflate(R.layout.snowboard_list_fragment, container, false)
     }
 
 }
