@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SnowboardStore</string>
+    <string name="app_name">Snowboard Store</string>
     <string name="email_label">Email:</string>
     <string name="password_label">Password:</string>
     <string name="submit">Submit</string>
@@ -14,4 +14,6 @@
     <string name="overview_text">Welcome to the Snowboard Store. On the next screen, you will be able to see different Snowboards available to look at in detail. Feel free to click on any of them to see the Snowboard in detail!</string>
     <string name="snowboard_list_button">Go To Snowboard List!</string>
     <string name="instruction_button_text">Click the Button Below!</string>
+    <string name="about">about</string>
+    <string name="rules">Rules</string>
 </resources>
