@@ -2,6 +2,9 @@ package com.zoose.snowboardstore
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
@@ -39,5 +42,17 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.navHostFragment)
         return NavigationUI.navigateUp(navController, drawerLayout)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        super.onCreateOptionsMenu(menu)
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.logout, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item, findNavController(R.id.navHostFragment))
+                || super.onOptionsItemSelected(item)
     }
 }

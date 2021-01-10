@@ -7,11 +7,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
             <fragment
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -27,8 +22,6 @@
                 android:layout_gravity="left"
                 app:headerLayout="@layout/nav_header"
                 app:menu="@menu/menu"/>
-
-        </LinearLayout>
 
     </androidx.drawerlayout.widget.DrawerLayout>
 
