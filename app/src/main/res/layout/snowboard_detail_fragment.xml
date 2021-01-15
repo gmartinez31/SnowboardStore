@@ -1,13 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".snowboarddetail.SnowboardDetailFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+
+        <EditText
+            android:id="@+id/snowboardBrandEditText"
+            android:layout_width="213dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            app:layout_constraintBottom_toTopOf="@+id/snowboardDescriptionEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/snowboardSizeEditText" />
+
+        <EditText
+            android:id="@+id/snowboardSizeEditText"
+            android:layout_width="213dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            app:layout_constraintBottom_toTopOf="@+id/snowboardBrandEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/snowboardNameEditText" />
+
+        <TextView
+            android:id="@+id/snowboard_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/snowboard_name_label"
+            app:layout_constraintBottom_toTopOf="@+id/snowboard_size_label"
+            app:layout_constraintEnd_toStartOf="@+id/snowboardNameEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/Cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@android:string/cancel"
+            app:layout_constraintBaseline_toBaselineOf="@+id/saveButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.188"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/snowboard_size_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/snowboard_size_label"
+            app:layout_constraintBottom_toTopOf="@+id/snowboard_brand_label"
+            app:layout_constraintEnd_toStartOf="@+id/snowboardSizeEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/snowboard_name_label" />
+
+        <TextView
+            android:id="@+id/snowboard_brand_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/snowboard_brand_label"
+            app:layout_constraintBottom_toTopOf="@+id/snowboard_description_label"
+            app:layout_constraintEnd_toStartOf="@+id/snowboardBrandEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/snowboard_size_label" />
+
+        <TextView
+            android:id="@+id/snowboard_description_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/snowboard_description_label"
+            app:layout_constraintBottom_toTopOf="@+id/Cancel"
+            app:layout_constraintEnd_toStartOf="@+id/snowboardDescriptionEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/snowboard_brand_label" />
+
+        <EditText
+            android:id="@+id/snowboardNameEditText"
+            android:layout_width="213dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="@string/snowboard_name_hint"
+            android:inputType="textPersonName"
+            android:text="Name"
+            app:layout_constraintBottom_toTopOf="@+id/snowboardSizeEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/snowboardDescriptionEditText"
+            android:layout_width="213dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            app:layout_constraintBottom_toTopOf="@+id/saveButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/snowboardBrandEditText" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/saveButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.544"
+            app:layout_constraintStart_toEndOf="@+id/Cancel"
+            app:layout_constraintTop_toBottomOf="@+id/snowboardDescriptionEditText"
+            app:layout_constraintVertical_bias="0.15" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+

@@ -17,4 +17,10 @@
     <string name="about">about</string>
     <string name="rules">Rules</string>
     <string name="logout">Logout</string>
+    <string name="snowboard_name_label">Snowboard Name:</string>
+    <string name="snowboard_size_label">Snowboard Size:</string>
+    <string name="snowboard_brand_label">Snowboard Brand:</string>
+    <string name="snowboard_description_label">Snowboard Description:</string>
+    <string name="snowboard_name_hint">Snowboard Name</string>
+    <string name="saveButton">Save</string>
 </resources>

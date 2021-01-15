@@ -10,16 +10,14 @@ import com.zoose.snowboardstore.R
 
 class SnowboardDetailFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = SnowboardDetailFragment()
-    }
-
     private lateinit var viewModel: SnowboardDetailViewModel
+    private lateinit var viewModelFactory: SnowboardDetailViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return inflater.inflate(R.layout.snowboard_detail_fragment, container, false)
     }
 
