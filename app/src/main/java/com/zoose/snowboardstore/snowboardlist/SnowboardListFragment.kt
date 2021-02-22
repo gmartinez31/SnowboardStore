@@ -24,6 +24,14 @@ class SnowboardListFragment : Fragment() {
         val binding: SnowboardListFragmentBinding = DataBindingUtil.inflate(
                 inflater, R.layout.snowboard_list_fragment, container, false)
 
+//        val view = inflater.inflate(R.layout.snowboard_list_fragment, container, false)
+//        val button: View = view.findViewById(R.id.addSnowboardButton)
+//
+//        button.setOnClickListener {
+//            Toast.makeText(context, "Add Snowboard Button clicked.", Toast.LENGTH_LONG).show()
+//            findNavController().navigate(SnowboardListFragmentDirections.actionSnowboardListFragmentToSnowboardDetailFragment())
+//        }
+
         binding.addSnowboardButton.setOnClickListener {
             Toast.makeText(context, "Add Snowboard Button clicked.", Toast.LENGTH_LONG).show()
             findNavController().navigate(SnowboardListFragmentDirections.actionSnowboardListFragmentToSnowboardDetailFragment())
