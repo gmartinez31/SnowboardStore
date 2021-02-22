@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.zoose.snowboardstore.R
 import com.zoose.snowboardstore.databinding.SnowboardDetailFragmentBinding
 
@@ -25,7 +26,27 @@ class SnowboardDetailFragment : Fragment() {
         binding.snowboardDetailViewModel = viewModel
         binding.lifecycleOwner = this
 
+        binding.cancelButton.setOnClickListener {
+            findNavController().navigate(SnowboardDetailFragmentDirections.actionSnowboardDetailDestinationToSnowboardDestination(null, null, null, 0));
+        }
 
+        binding.saveButton.setOnClickListener {
+            // save new snowboard and pass as bundle to snowboard list fragment
+//            viewModel.newSnowboard.value?.apply {
+//                brand = binding.snowboardBrandEditText.text.toString()
+//                description = binding.snowboardDescriptionEditText.text.toString()
+//                size = binding.snowboardSizeEditText.text.toString().toInt()
+//                name = binding.snowboardNameEditText.text.toString()
+//            }
+            findNavController().navigate(
+                    SnowboardDetailFragmentDirections.actionSnowboardDetailDestinationToSnowboardDestination(
+                        binding.snowboardNameEditText.toString(),
+                        binding.snowboardBrandEditText.text.toString(),
+                        binding.snowboardDescriptionEditText.text.toString(),
+                        binding.snowboardSizeEditText.text.toString().toInt()
+                    )
+            )
+        }
 
         return inflater.inflate(R.layout.snowboard_detail_fragment, container, false)
     }

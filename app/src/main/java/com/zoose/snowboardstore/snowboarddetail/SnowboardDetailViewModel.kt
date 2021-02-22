@@ -14,5 +14,7 @@ class SnowboardDetailViewModel : ViewModel() {
 
     }
 
+    fun addNewBoard() {
 
+    }
 }

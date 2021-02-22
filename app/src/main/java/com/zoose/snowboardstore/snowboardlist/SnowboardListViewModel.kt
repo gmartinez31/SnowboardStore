@@ -14,4 +14,8 @@ class SnowboardListViewModel : ViewModel() {
         snowboards.value?.add(Snowboard("Example", 150, "No Brand", "Test Board", listOf("image1")))
     }
 
+    fun addToSnowboardList(snowboard: Snowboard) {
+        _snowboards.value?.add(snowboard)
+    }
+
 }

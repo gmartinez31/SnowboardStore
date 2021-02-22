@@ -27,14 +27,15 @@
                 android:textAlignment="center" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/button"
+                android:id="@+id/addSnowboardButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
-                app:srcCompat="@android:drawable/ic_input_add"
-                android:contentDescription="AddSnowboard" />
+                android:contentDescription="AddSnowboard"
+                app:srcCompat="@android:drawable/ic_input_add" />
 
         </LinearLayout>
+
     </ScrollView>
 
 </layout>

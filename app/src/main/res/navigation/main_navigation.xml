@@ -37,10 +37,30 @@
         <action
             android:id="@+id/action_snowboardListFragment_to_snowboardDetailFragment"
             app:destination="@id/snowboard_detail_destination" />
+        <argument
+            android:name="newSnowboardName"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="newSnowboardBrand"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="newSnowboardDescription"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="newSnowboardSize"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/snowboard_detail_destination"
         android:name="com.zoose.snowboardstore.snowboarddetail.SnowboardDetailFragment"
         android:label="snowboard_detail_destination"
-        tools:layout="@layout/snowboard_detail_fragment" />
+        tools:layout="@layout/snowboard_detail_fragment" >
+        <action
+            android:id="@+id/action_snowboard_detail_destination_to_snowboard_destination"
+            app:destination="@id/snowboard_destination" />
+    </fragment>
 </navigation>

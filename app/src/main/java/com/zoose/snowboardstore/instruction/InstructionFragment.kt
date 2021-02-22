@@ -20,7 +20,11 @@ class InstructionFragment : Fragment() {
             inflater, R.layout.instruction_fragment, container, false)
 
         binding.snoboardListBtn.setOnClickListener {
-            findNavController().navigate(InstructionFragmentDirections.actionInstructionDestinationToSnowboardListFragment())
+            findNavController().navigate(InstructionFragmentDirections.actionInstructionDestinationToSnowboardListFragment(
+                    null,
+                    null,
+                    null,
+                    0))
         }
 
         return binding.root
