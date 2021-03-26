@@ -6,8 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.zoose.snowboardstore.R
 import com.zoose.snowboardstore.databinding.SnowboardListFragmentBinding
@@ -24,14 +27,6 @@ class SnowboardListFragment : Fragment() {
         val binding: SnowboardListFragmentBinding = DataBindingUtil.inflate(
                 inflater, R.layout.snowboard_list_fragment, container, false)
 
-//        val view = inflater.inflate(R.layout.snowboard_list_fragment, container, false)
-//        val button: View = view.findViewById(R.id.addSnowboardButton)
-//
-//        button.setOnClickListener {
-//            Toast.makeText(context, "Add Snowboard Button clicked.", Toast.LENGTH_LONG).show()
-//            findNavController().navigate(SnowboardListFragmentDirections.actionSnowboardListFragmentToSnowboardDetailFragment())
-//        }
-
         binding.addSnowboardButton.setOnClickListener {
             Toast.makeText(context, "Add Snowboard Button clicked.", Toast.LENGTH_LONG).show()
             findNavController().navigate(SnowboardListFragmentDirections.actionSnowboardListFragmentToSnowboardDetailFragment())
@@ -40,7 +35,9 @@ class SnowboardListFragment : Fragment() {
         viewModelFactory = SnowboardListViewModelFactory()
         viewModel = ViewModelProvider(this, viewModelFactory).get(SnowboardListViewModel::class.java)
         binding.snowboardListViewModel = viewModel
+        binding.lifecycleOwner = this
 
+        // get new snowboard from Detail Fragment
         val args = SnowboardListFragmentArgs.fromBundle(requireArguments())
         val newSnowboard = Snowboard(
                 args.newSnowboardName.toString(),
@@ -50,9 +47,28 @@ class SnowboardListFragment : Fragment() {
         )
 
         viewModel.addToSnowboardList(newSnowboard)
-        binding.lifecycleOwner = this
 
-        return inflater.inflate(R.layout.snowboard_list_fragment, container, false)
+        viewModel.listUpdated.observe(viewLifecycleOwner, Observer {
+            updatedList -> if (updatedList) {
+                val snowboards = viewModel.snowboards.value
+                if (snowboards != null) {
+                    for (snowboard: Snowboard in snowboards) {
+                        val textView = TextView(context)
+                        textView.layoutParams = LinearLayout.LayoutParams(
+                                LinearLayout.LayoutParams.MATCH_PARENT,
+                                LinearLayout.LayoutParams.MATCH_PARENT)
+
+                        binding.listLinearLayout.addView(textView)
+                    }
+                }
+
+                viewModel.onListUpdatedEventComplete()
+            }
+        })
+
+
+
+        return binding.root
     }
 
 }
